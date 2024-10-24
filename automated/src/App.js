@@ -1,10 +1,13 @@
 
+import react from 'react';
 import './App.css';
+import PersonalDetails from './components/personalDetails';
 
 function App() {
   return (
     <div className="App">
-         lets work this out guys
+         We are working on it worry not!!
+         <PersonalDetails />
     </div>
   );
 }
