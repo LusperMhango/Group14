@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoanDetails() {
+function ParentDetails() {
   return (
     <div>
       <h1>Loan Details</h1>
@@ -9,4 +9,4 @@ function LoanDetails() {
   );
 }
 
-export default LoanDetails;
+export default ParentDetails;
