@@ -8,28 +8,28 @@ import LogOut from './components/logOut';
 import ParentDetails from './components/parentDetails';
 import PersonalDetails from './components/personalDetails';
 
-// Optional Navigation Component
-function Navbar() {
-  return (
-    <nav>
-      <ul>
-        <li><a href="/login">Login</a></li> {/* Move login to be the first item */}
-        <li><a href="/">Home</a></li>
-        <li><a href="/bank-details">Bank Details</a></li>
-        <li><a href="/loan-details">Loan Details</a></li>
-        <li><a href="/logout">Log Out</a></li>
-        <li><a href="/parent-details">Parent Details</a></li>
-        <li><a href="/personal-details">Personal Details</a></li>
-      </ul>
-    </nav>
-  );
-}
+// // Optional Navigation Component
+// function Navbar() {
+//   return (
+//     <nav>
+//       <ul>
+//         <li><a href="/login">Login</a></li> {/* Move login to be the first item */}
+//         <li><a href="/">Home</a></li>
+//         <li><a href="/bank-details">Bank Details</a></li>
+//         <li><a href="/loan-details">Loan Details</a></li>
+//         <li><a href="/logout">Log Out</a></li>
+//         <li><a href="/parent-details">Parent Details</a></li>
+//         <li><a href="/personal-details">Personal Details</a></li>
+//       </ul>
+//     </nav>
+//   );
+// }
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar /> {/* Optional Navbar */}
+        {/* <Navbar /> Optional Navbar */}
         
         <Routes>
           <Route path="/" element={<Login />} /> {/* Change default route to Login */}
