@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
+
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,21 +20,23 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
-      <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
+    // <div className="flex justify-center items-center h-screen bg-gray-200">
+      <div className="bg-gray-300 shadow-md rounded-lg p-8 max-w-md w-full mx-auto md:p-6 lg:p-8">
         <img
           src="logo.jpg" // Make sure this path is correct for your logo image
           alt="Logo"
-          className="mx-auto mb-6 h-16"
+          
+          className="mx-auto mb-2 h-48 rounded-full"
         />
-        <h2 className="text-2xl font-bold mb-6">SFMIS - Login</h2>
-
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-900 ">SFMIS - Login</h2>
+<div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-left text-gray-600 mb-1">Email</label>
+           
             <input
               type="email"
               id="email"
+              placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -41,10 +45,11 @@ function Login() {
           </div>
           
           <div>
-            <label htmlFor="password" className="block text-left text-gray-600 mb-1">Password</label>
+            
             <input
               type="password"
               id="password"
+              placeholder='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -59,13 +64,17 @@ function Login() {
             Login
           </button>
         </form>
-
+{/* <horizontaline/> */}
+<div className='w-full h-1 bg-gray-800 my-4'></div>
         <div className="mt-6">
-          <a href="/reset-password" className="block text-blue-600 hover:underline mb-3">Lost your password?</a>
-          <p className="text-gray-600">2024 Higher Education Students' Grants & Loans board</p>
+          <a href="/reset-password" className="block text-blue-800 hover:underline mb-3  text-center ">create account</a>
+          <a href="/reset-password" className="block text-blue-800 hover:underline mb-3 text-center">Lost your password?</a>
+          <p className="text-gray-600 text-center ">2024 Higher Education </p>
+          <p className=" text-gray-600 text-center "> Students' Grants & Loans board</p>
         </div>
       </div>
-    </div>
+      </div>
+    // </div>
   );
 }
 
