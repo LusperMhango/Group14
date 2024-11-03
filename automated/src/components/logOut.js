@@ -24,7 +24,7 @@ function Logout() {
   };
 
   return (
-    // <div className="flex justify-center items-center h-screen bg-gray-200">
+    
       <div className=" bg-gray-300 shadow-md rounded-lg fixed-center p-8 max-w-md w-3/4 text-center gap-4 mx-auto md:p-6 lg:p-8">
         <header className="flex items-center justify-between mb-4">
           <div className="flex items-center">
@@ -47,7 +47,7 @@ function Logout() {
 
 {/* Dropdown Menu */}
 {isMenuOpen && (
-          // <div className="bg-orange -400 p-4 rounded-lg shadow-md mb-4  ">
+          
             <ul className="text-right">
               <li><button onClick={() => navigate('/page1')} className="text-gray-900 hover:underline">Page 1</button></li>
               <li><button onClick={() => navigate('/page2')} className="text-gray-900 hover:underline">Page 2</button></li>
@@ -59,7 +59,7 @@ function Logout() {
               <li><button onClick={() => navigate('/page8')} className="text-gray-900 hover:underline">Page 8</button></li>
               <li><button onClick={() => navigate('/page9')} className="text-gray-900 hover:underline">Page 9</button></li>
             </ul>
-          // </div>
+          
         )}
 
 
@@ -68,7 +68,7 @@ function Logout() {
         <h1 className="text-2xl font-semibold mb-4 text-center text-black">You have successfully bonded.</h1>
         
         <img src="c.jpg" 
-        alt="Handshake illustration" 
+        alt="congatulation" 
         className="mx-auto mb-6 h-60 rounded-2xl" />
 <h4>please check your email for feedback</h4>
 <div className='w-full h-0.5 bg-gray-800 my-4'></div>
@@ -80,7 +80,7 @@ function Logout() {
         <p className='text-gray-900 text-center '> Students' Grants & Loans board</p>
         </footer>
       </div>
-    // </div>
+    
   );
 }
 
