@@ -16,10 +16,10 @@ function Logout() {
   };
 
   const handleLogout = () => {
-    // Clear any stored session data
+    
     localStorage.clear();
     
-    // Redirect to home or login page after logout
+    
     navigate('/'); 
   };
 
