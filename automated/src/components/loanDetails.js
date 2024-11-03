@@ -49,11 +49,11 @@ const ApprovedLoanDetails = () => {
               <li><button onClick={() => navigate('/page2')} className="text-gray-900 hover:underline">Page 2</button></li>
               <li><button onClick={() => navigate('/page3')} className="text-gray-900 hover:underline">Page 3</button></li>
               <li><button onClick={() => navigate('/page4')} className="text-gray-900 hover:underline">Page 4</button></li>
-              <li><button onClick={() => navigate('/page5')} className="text-gray-900 hover:underline">Page 5</button></li>
+              {/* <li><button onClick={() => navigate('/page5')} className="text-gray-900 hover:underline">Page 5</button></li>
               <li><button onClick={() => navigate('/page6')} className="text-gray-900 hover:underline">Page 6</button></li>
               <li><button onClick={() => navigate('/page7')} className="text-gray-900 hover:underline">Page 7</button></li>
               <li><button onClick={() => navigate('/page8')} className="text-gray-900 hover:underline">Page 8</button></li>
-              <li><button onClick={() => navigate('/page9')} className="text-gray-900 hover:underline">Page 9</button></li>
+              <li><button onClick={() => navigate('/page9')} className="text-gray-900 hover:underline">Page 9</button></li> */}
             </ul>
           // </div>
         )}
