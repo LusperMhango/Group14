@@ -108,7 +108,7 @@ const CreateAccount = () => {
       <div className="w-full max-w-md bg-gray p-8 border border-gray-300 rounded-xl shadow-lg">
         {/* Header */}
         <header className="text-center mb-8">
-          <img src="logo.jpg" alt="Logo" className="h-20 mx-auto mb-4" />
+          <img src="logo.jpg" alt="Logo" className="w-24 h-24 mx-auto mb-4 rounded-full"/>
           <h2 className="text-2xl font-bold text-gray-800">SFMIS - Create account</h2>
         </header>
 
