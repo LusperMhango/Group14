@@ -7,18 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const ApprovedLoanDetails = () => {
     const navigate = useNavigate();
 
-  // return (
-  //   <div className="min-h-screen flex flex-col items-center bg-white py-10 px-4">
-  //     {/* Header */}
-  //     <header className="w-full max-w-md text-center mb-4">
-  //       <img src="logo.jpg" alt="Logo" className="h-12 mx-auto mb-4" />
-  //       <nav className="flex justify-center space-x-4 mb-6">
-  //         <button className="bg-yellow-700 text-white px-4 py-2 rounded" onClick={() => navigate('/Landing')}>Home</button>
-  //         {/* <button className="bg-yellow-700 text-white px-4 py-2 rounded">Bonding Tutorial</button> */}
-  //       </nav>
-  //       <h1 className="text-xl font-bold text-gray-800">Bonding in Progress</h1>
-  //       <h2 className="text-lg font-semibold text-gray-700 mt-2">Stage 4: Approved Loan Details</h2>
-  //     </header>
+  
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,7 +22,7 @@ const ApprovedLoanDetails = () => {
         <header className="flex items-center justify-between mb-4">
           <div className="flex items-center">
             <img
-              src="logo.jpg" // Ensure the path is correct
+              src="logo.jpg" 
               alt="Logo"
               className="h-20 mr-4 rounded-full"
             />
