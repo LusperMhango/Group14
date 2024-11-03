@@ -183,9 +183,7 @@ const CreateAccount = () => {
 
         {/* Footer */}
         <footer className="mt-8 text-center text-gray-500 text-sm">
-          <p>All Rights Reserved.</p>
-          <p>Sample Web Application to digitize the student account creation process</p>
-          <p>A COM311/COM312 Project 2023</p>
+          
         </footer>
       </div>
     </div>
