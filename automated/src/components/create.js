@@ -4,7 +4,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CreateAccount = () => {
+const Create = () => {
   const navigate = useNavigate();
 
   return (
@@ -94,4 +94,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default Create;
