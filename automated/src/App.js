@@ -1,10 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import personalDetails from './components/personalDetails';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <personalDetails />
+
     </div>
   );
 }

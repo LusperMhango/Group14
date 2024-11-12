@@ -1,64 +1,50 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const personalDetails = () => {
-  // State for form data
   const [formData, setFormData] = useState({
-    firstname: "",
-    surname: "",
-    sex: "",
-    phoneNumber: "",
-    homeVillage: "",
-    ta: "",
-    nationalId: "",
+    firstName: '',
+    surname: '',
+    sex: '',
+    phoneNumber: '',
+    homeVillage: '',
+    ta: '',
+    nationalId: '',
   });
 
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
 
-  // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setError(false);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Check if all fields are filled
-    const isFormValid = Object.values(formData).every((field) => field.trim() !== "");
-
-    if (isFormValid) {
-      // Proceed to next step
-      alert("Form submitted successfully!");
-    } else {
-      setError(true);
+    const { firstName, surname, sex, phoneNumber, homeVillage, ta, nationalId } = formData;
+    
+    if (!firstName || !surname || !sex || !phoneNumber || !homeVillage || !ta || !nationalId) {
+      setError('Please fill out all fields.');
+      return;
     }
+    setError('');
+    alert('Proceeding to next form...');
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-200">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-sm bg-white rounded-lg shadow-md p-6"
-      >
-        <h2 className="text-center text-xl font-semibold mb-4">
-          Bonding In Progress
-        </h2>
-        <p className="text-center text-gray-600 mb-6">
-           Enter Personal Details
-        </p>
-
-        {/* Input fields */}
-        <div className="space-y-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <div className="text-center mb-4">
+          <h2 className="text-lg font-bold text-black">Bonding In Progress</h2>
+          <p className="text-sm font-semibold text-gray-500">1st: Enter Personal Details</p>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {error && <p className="text-red-500 text-sm">{error}</p>}
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             placeholder="Firstname"
-            value={formData.firstname}
+            value={formData.firstName}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
           <input
             type="text"
@@ -66,28 +52,23 @@ const personalDetails = () => {
             placeholder="Surname"
             value={formData.surname}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
-          <select
+          <input
+            type="text"
             name="sex"
+            placeholder="Sex"
             value={formData.sex}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
-          >
-            <option value="">Select Sex</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
+            className="w-full p-2 border border-black rounded-md"
+          />
           <input
-            type="tel"
+            type="text"
             name="phoneNumber"
             placeholder="Phone number"
             value={formData.phoneNumber}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
           <input
             type="text"
@@ -95,8 +76,7 @@ const personalDetails = () => {
             placeholder="Home village"
             value={formData.homeVillage}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
           <input
             type="text"
@@ -104,8 +84,7 @@ const personalDetails = () => {
             placeholder="T/A"
             value={formData.ta}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
           <input
             type="text"
@@ -113,38 +92,19 @@ const personalDetails = () => {
             placeholder="National ID"
             value={formData.nationalId}
             onChange={handleChange}
-            className="w-full p-3 border border-yellow-400 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            required
+            className="w-full p-2 border border-black rounded-md"
           />
-        </div>
-
-        {/* Error message */}
-        {error && (
-          <p className="text-red-500 text-center mt-4">
-            Please fill in all the required fields.
-          </p>
-        )}
-
-        {/* Navigation buttons */}
-        <div className="flex justify-between items-center mt-6">
-          <button
-            type="button"
-            className="text-gray-600 hover:text-yellow-500 text-2xl"
-          >
-            &#x2190;
-          </button>
           <button
             type="submit"
-            className="text-2xl text-gray-600 hover:text-yellow-500"
+            className="w-full py-2 mt-4 bg-black text-white rounded-md hover:bg-gray-800"
           >
-            &#x2192;
+            Proceed
           </button>
-        </div>
-
-        <p className="text-center text-gray-600 mt-6 text-sm">
+        </form>
+        <p className="text-xs text-center text-gray-500 mt-4">
           2024 Higher Education Students' Grants & Loans Board
         </p>
-      </form>
+      </div>
     </div>
   );
 };
