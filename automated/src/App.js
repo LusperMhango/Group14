@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
 import Navbar from './components/Navbar';
-import personalDetails from './components/personalDetails';
 
 function App() {
   return (
     <div className="App">
-        <Navbar /> 
-        <personalDetails />
+      <Navbar />
+      <div className="p-6">
+        {/*<h1 className="text-3xl font-bold">Welcome to the Loan Application Portal</h1>*/}
+      </div>
     </div>
   );
 }

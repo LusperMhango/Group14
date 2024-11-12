@@ -46,7 +46,7 @@ const personalDetails = () => {
           Bonding In Progress
         </h2>
         <p className="text-center text-gray-600 mb-6">
-          1st: Enter Personal Details
+           Enter Personal Details
         </p>
 
         {/* Input fields */}
