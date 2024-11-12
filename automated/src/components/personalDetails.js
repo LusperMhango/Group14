@@ -31,20 +31,22 @@ const PersonalDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full h-screen p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-center text-lg font-semibold mb-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 font-sans">
+      <div className="w-full h-screen p-8 bg-white shadow-lg rounded-lg mt-16">
+        <h2 className="text-center text-xl font-semibold mb-4 shadow-lg font-sans">
           BONDING IN PROGRESS
         </h2>
-       <p className="text-center mb-4 border-b-2 border-black w-full">Enter Personal Details</p>
+        
+       <p className="text-center mb-4 border-b-2 border-black w-full shadow-xl font-bold mt-4">Enter Personal Details</p>
+       <div className="flex justify-center items-center font-sans mt-2">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
+          <input 
             type="text"
             name="firstname"
             placeholder="Firstname"
             value={formData.firstname}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 border-solid rounded-md placeholder:text-black flex justify-center items-center "
           />
           <input
             type="text"
@@ -52,15 +54,14 @@ const PersonalDetails = () => {
             placeholder="Surname"
             value={formData.surname}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-black flex justify-center item-center"
           />
           <select
             name="sex"
             value={formData.sex}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md text-black flex justify-center items-center "
           >
-            <option value="">Select Sex</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -70,7 +71,7 @@ const PersonalDetails = () => {
             placeholder="Phone Number"
             value={formData.phoneNumber}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-black flex justify-center items-center "
           />
           <input
             type="text"
@@ -78,7 +79,7 @@ const PersonalDetails = () => {
             placeholder="Home Village"
             value={formData.homeVillage}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-black flex justify-center items-center "
           />
           <input
             type="text"
@@ -86,7 +87,7 @@ const PersonalDetails = () => {
             placeholder="T/A"
             value={formData.ta}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-black flex justify-center items-center "
           />
           <input
             type="text"
@@ -94,7 +95,7 @@ const PersonalDetails = () => {
             placeholder="National ID"
             value={formData.nationalId}
             onChange={handleInputChange}
-            className="w-full p-2 border border-black rounded-md placeholder:text-black"
+            className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-black flex justify-center items-center "
           />
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
@@ -103,8 +104,10 @@ const PersonalDetails = () => {
           >
             Proceed
           </button>
+          
         </form>
-        <p className="text-center text-sm mt-4">
+        </div>
+        <p className="text-center text-sm mt-12 font-bold font-sans">
           2024 Higher Education<br></br>Students' Grants & Loans Board
         </p>
       </div>
