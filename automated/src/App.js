@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BankDetails from './components/bankDetails';
 import LandingPage from './components/landingPage';
@@ -27,6 +28,19 @@ function App() {
         </Routes>
       </div>
     </Router>
+=======
+import Navbar from './components/Navbar';
+import PersonalDetails from './components/personalDetails';
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <PersonalDetails />
+      
+
+    </div>
+>>>>>>> 0c952b9d22984e43f4df18b04bdc823ef8d355db
   );
 }
 
