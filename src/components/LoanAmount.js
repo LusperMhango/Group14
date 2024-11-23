@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import { useNavigate } from "react-router-dom";
+
 
 const ApprovedLoanDetails = () => {
   const navigate = useNavigate();
