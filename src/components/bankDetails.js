@@ -103,14 +103,15 @@ export const BankDetails = () => {
               <button
                 type="button"
                 className="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700"
-              >
+                onClick={() => navigate('/parent')}>
                 Previous
               </button>
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
+                onClick={() => navigate('/loan')}
               >
-                Finish
+                next
               </button>
             </div>
           </form>

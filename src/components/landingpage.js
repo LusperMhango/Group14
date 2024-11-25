@@ -53,7 +53,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-r from-blue-500 via-blue-600 to-blue-600 text-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-gray-500 via-gray-600 to-gray-600 text-white">
       <Navbar />
       <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
         {/* Text Section */}

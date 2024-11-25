@@ -58,9 +58,16 @@ const Navbar = () => {
             >
               Bank Details
             </button>
+
+            <button
+              type="submit"
+              className="hover:text-yellow-500"
+              onClick={() => navigate('/terms')}
+            >
+              terms
+            </button>
         
         
-        <a href="/" className="hover:text-yellow-500">Terms</a>
       </div>
 
       <div className="flex items-center space-x-4">

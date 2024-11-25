@@ -110,23 +110,7 @@ function TermsAndConditionsPage() {
             identification, proof of enrollment, and bonding agreement
             signatures, to complete the bonding process.
           </p>
-          <div className="mt-4">
-            <input
-              type="file"
-              accept=".pdf, .jpg, .jpeg, .png"
-              onChange={handleFileChange}
-              className="mb-2 block w-full text-gray-700 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-            />
-            <button
-              onClick={handleFileUpload}
-              className="px-6 py-2 bg-orange-500 text-white font-medium rounded-md shadow-md hover:bg-orange-600 transition duration-300"
-            >
-              Upload File
-            </button>
-            {uploadMessage && (
-              <p className="mt-2 text-green-600 font-medium">{uploadMessage}</p>
-            )}
-          </div>
+        
         </div>
       </main>
       <footer className="bg-gray-800 text-center py-4 mt-8">

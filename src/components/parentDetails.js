@@ -140,12 +140,14 @@ const ParentDetails = () => {
     <div>
       <Navbar />
       <div className="flex justify-center items-center min-h-screen bg-gray-400 font-sans">
-        <div className="w-full max-w-md p-8 bg-gray-300 shadow-lg rounded-lg">
-          <h2 className="text-center text-xl font-semibold mb-4 shadow-lg font-sans">
-            BONDING IN PROGRESS
+      <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
+          {/* <h2 className="text-center text-xl font-semibold mb-4 shadow-lg font-sans"> */}
+          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 font-sans">
+            PARENT DETAILS FORM
           </h2>
-          <p className="text-center mb-4 border-b-2 border-black w-full shadow-xl font-bold">
-            2ND: ENTER PARENTS DETAILS
+          {/* <p className="text-center mb-4 border-b-2 border-black w-full shadow-xl font-bold"> */}
+          <p className="text-center text-gray-600 mb-8 font-sans">
+          please enter the correct parent details 
           </p>
           <form className="space-y-6">
             <div>
@@ -155,7 +157,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="Full name"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -166,7 +168,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="Postal Address"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -177,7 +179,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="Physical Address"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -188,7 +190,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="Home Village"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -199,7 +201,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="District"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -210,7 +212,7 @@ const ParentDetails = () => {
               <input
                 type="text"
                 placeholder="Occupation"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -221,7 +223,7 @@ const ParentDetails = () => {
               <input
                 type="number"
                 placeholder="Phone number"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder:text-gray-400"
                 required
               />
             </div>
@@ -229,14 +231,14 @@ const ParentDetails = () => {
             <div className="flex justify-between mt-8">
               <button
                 type="button"
-                className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800"
+                className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-800"
                 onClick={() => navigate("/personal")}
               >
                 Previous
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-gray-800"
                 onClick={() => navigate("/bank")}
               >
                 Next

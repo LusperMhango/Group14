@@ -15,7 +15,8 @@ const ApprovedLoanDetails = () => {
     <div>
       <Navbar />
       <div className="flex justify-center items-center min-h-screen bg-gray-300 font-sans">
-        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg ">
+        {/* <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg "> */}
+        <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
           <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
           LOAN AMOUNT FORM
           </h2>
@@ -73,7 +74,7 @@ const ApprovedLoanDetails = () => {
               <button
                 type="button"
                 className="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700"
-                onClick={() => navigate("/bank-details")}
+                onClick={() => navigate("/bank")}
               >
                 Previous
               </button>
