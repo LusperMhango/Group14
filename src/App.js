@@ -3,7 +3,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import LandingPage from './components/landingPage';
+import LandingPage from './components/landingpage';
 import Create from './components/create';
 import Login from './components/login';
 import ApprovedLoanDetails from './components/LoanAmount';
