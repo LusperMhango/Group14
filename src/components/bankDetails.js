@@ -1,44 +1,65 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import PersonalNavbar from "./personalNav";
+import api from "./api";
+import { useNavigate } from "react-router-dom";
 
 export const BankDetails = () => {
-  const [formData, setFormData] = useState({
-    bankname: "",
-    branch: "",
-    accountname: "",
-    accountnumber: "",
-  });
+  const [bankname, setBankname] = useState('');
+  const [branchName, setBranchname] = useState('');
+  const [accountName, setAccountname] = useState('');
+  const [accountNumber, setAccountnumber] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  
 
-  const [error, setError] = useState("");
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const isEmptyField = Object.values(formData).some((field) => field === "");
-    if (isEmptyField) {
-      setError("Please fill out all fields before proceeding.");
-      return;
+
+    try {
+      const response = await api.post('/bank/create', {
+       bankname,
+       branchName,
+       accountName,
+       accountNumber
+      });
+
+      // If the response is successful, save the token and navigate to the next page
+      const token = response.data.accessToken;
+      localStorage.setItem('accessToken', token);
+      alert(`${bankname} details submitted successfully`)
+      navigate('/landingpage');
+    } catch (error) {
+      console.error('Failed to post:', error);
+      
+      // Log the error to inspect the response
+      if (error.response) {
+        // Server responded with an error
+        setError(`Error: ${error.response.status} - ${error.response.data.message || error.response.statusText}`);
+      } else if (error.request) {
+        // No response was received
+        setError("No response from server. Please try again later.");
+      } else {
+        // Something else went wrong
+        setError(`An error occurred: ${error.message}`);
+      }
     }
-    setError("");
-    alert("Form uploaded successfully!");
   };
+
+
 
   return (
     <div>
-      <Navbar />
-      <div className="flex justify-center items-center min-h-screen bg-gray-200 font-sans">
-        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg max-h-screen-1/2 mt-16 mb-16">
-          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 ">
-            Bank Details Form
+      <PersonalNavbar />
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 font-sans">
+        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg">
+          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
+            BANK DETAILS FORM
           </h2>
           <p className="text-center text-gray-600 mb-8">
             Please provide accurate banking details for bonding.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Bank Name
@@ -47,72 +68,60 @@ export const BankDetails = () => {
                 type="text"
                 name="bankname"
                 placeholder="Enter your bank's name"
-                value={formData.bankname}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+                value={bankname}
+                onChange={(e) => setBankname(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md"
               />
             </div>
-
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Branch Name
               </label>
               <input
                 type="text"
-                name="branch"
+                name="branchName"
                 placeholder="Enter your branch name"
-                value={formData.branch}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+                value={branchName}
+                onChange={(e) => setBranchname(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md"
               />
             </div>
-
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Account Name
               </label>
               <input
                 type="text"
-                name="accountname"
+                name="accountName"
                 placeholder="Enter the account holder's name"
-                value={formData.accountname}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+                value={accountName}
+                onChange={(e) => setAccountname(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md"
               />
             </div>
-
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 Account Number
               </label>
               <input
-                type="number"
-                name="accountnumber"
+                type="text"
+                name="accountNumber"
                 placeholder="Enter your account number"
-                value={formData.accountnumber}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+                value={accountNumber}
+                onChange={(e) => setAccountnumber(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md"
               />
             </div>
-
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-
-            <div className="flex justify-between items-center mt-6">
-              <button
-                type="button"
-                className="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700"
-              >
-                Previous
-              </button>
+            <div className="flex justify-end items-center mt-6">
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
               >
-                Proceed
+                Finish
               </button>
             </div>
           </form>
-
           <p className="text-center text-gray-600 text-sm mt-8">
             &copy; 2024 Higher Education Students' Grants & Loans Board
           </p>

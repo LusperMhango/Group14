@@ -1,257 +1,171 @@
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import Navbar from "./Navbar";
-
-// const ParentDetails = () => {
-//   const navigate = useNavigate();
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-//   const handleMenuClick = () => {
-//     setIsMenuOpen(!isMenuOpen);
-//   };
-
-//   return (
-//     <div>
-//       <Navbar />
-//       <div className="flex justify-center items-center min-h-screen bg-gray-400 font-sans">
-//         <div className="w-full h-screen p-8 bg-gray-300 shadow-lg rounded-lg mt-16">
-//           <h2 className="text-center text-xl font-semibold mb-4 shadow-lg font-sans">
-//             BONDING IN PROGRESS
-//           </h2>
-//           <p className="text-center mb-4 border-b-2 border-black w-full shadow-xl font-bold mt-4">
-//             2ND: ENTER PARENTS DETAILS
-//           </p>
-//           <div className="flex justify-center items-center font-sans mt-16">
-//             <form className="space-y-4">
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Full Name:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="Full name"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Postal Address:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="Postal Address"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Physical Address:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="Physical Address"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Home Village:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="Home Village"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>District:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="District"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Occupation:</b>
-//                 <input
-//                   type="text"
-//                   placeholder="Occupation"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-//               <label className="font-sans mb-4 font-light">
-//                 <b>Phone Number:</b>
-//                 <input
-//                   type="number"
-//                   placeholder="Phone number"
-//                   className="w-80 p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-//                   required
-//                 />
-//               </label>
-
-//               <div className="flex justify-between mt-16">
-//                 <button
-//                   type="button"
-//                   className="w-full-3/4 p-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800"
-//                   onClick={() => navigate("/personal-details")}
-//                 >
-//                   Previous
-//                 </button>
-//                 <button
-//                   type="submit"
-//                   className="w-full-3/4 p-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800 ml-40"
-//                   onClick={() => navigate("/bank-details")}
-//                 >
-//                   Next
-//                 </button>
-//               </div>
-//             </form>
-//           </div>
-//           <p className="text-center text-sm mt-8 font-bold font-sans mt-40">
-//             2024 Higher Education
-//             <br />
-//             Students' Grants & Loans Board
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ParentDetails;
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "./api";
 import Navbar from "./Navbar";
+import PersonalNavbar from "./personalNav";
 
-const ParentDetails = () => {
+export const ParentDetails = () => {
+  const [firstname, setFirstname] = useState('');
+  const [surname, setSurname] = useState('');
+  const [gender, setGender] = useState('');
+  const [phonenumber, setPhone] = useState('');
+  const [homevillage, setHomevillage] = useState('');
+  const [traditionalAuthority, setTA] = useState('');
+  const [nationalID, setNationaId] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post('/personal/create', {
+        firstname,
+        surname,
+        gender,
+        phonenumber,
+        homevillage,
+        traditionalAuthority,
+        nationalID,
+      });
+
+      // If the response is successful, save the token and navigate to the next page
+      const token = response.data.accessToken;
+      localStorage.setItem('accessToken', token);
+      alert(`personal details submitted successfuly ${firstname}`)
+      navigate('/bank');
+    } catch (error) {
+      console.error('Failed to post:', error);
+      
+      // Log the error to inspect the response
+      if (error.response) {
+        // Server responded with an error
+        setError(`Error: ${error.response.status} - ${error.response.data.message || error.response.statusText}`);
+      } else if (error.request) {
+        // No response was received
+        setError("No response from server. Please try again later.");
+      } else {
+        // Something else went wrong
+        setError(`An error occurred: ${error.message}`);
+      }
+    }
   };
 
   return (
     <div>
-      <Navbar />
-      <div className="flex justify-center items-center min-h-screen bg-gray-400 font-sans">
-        <div className="w-full max-w-md p-8 bg-gray-300 shadow-lg rounded-lg">
-          <h2 className="text-center text-xl font-semibold mb-4 shadow-lg font-sans">
-            BONDING IN PROGRESS
+      <PersonalNavbar />
+      <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700  font-sans ">
+        <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
+          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 font-sans">
+            PERSONAL DETAILS FORM
           </h2>
-          <p className="text-center mb-4 border-b-2 border-black w-full shadow-xl font-bold">
-            2ND: ENTER PARENTS DETAILS
+          <p className="text-center text-gray-600 mb-8 font-sans">
+            Please enter accurate personal details.
           </p>
-          <form className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Full Name:</b>
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Firstname</label>
               <input
                 type="text"
-                placeholder="Full name"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Postal Address:</b>
-              </label>
-              <input
-                type="text"
-                placeholder="Postal Address"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Physical Address:</b>
-              </label>
-              <input
-                type="text"
-                placeholder="Physical Address"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Home Village:</b>
-              </label>
-              <input
-                type="text"
-                placeholder="Home Village"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>District:</b>
-              </label>
-              <input
-                type="text"
-                placeholder="District"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Occupation:</b>
-              </label>
-              <input
-                type="text"
-                placeholder="Occupation"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
-              />
-            </div>
-            <div>
-              <label className="font-sans mb-4 font-light">
-                <b>Phone Number:</b>
-              </label>
-              <input
-                type="number"
-                placeholder="Phone number"
-                className="w-full p-2 border border-yellow-800 rounded-md placeholder:text-gray-400"
-                required
+                name="firstname"
+                placeholder="Enter Firstname"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
-            <div className="flex justify-between mt-8">
-              <button
-                type="button"
-                className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800"
-                onClick={() => navigate("/personal")}
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Surname</label>
+              <input
+                type="text"
+                name="surname"
+                placeholder="Enter Surname"
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Gender</label>
+              <select
+                name="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               >
-                Previous
-              </button>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                placeholder="Enter Phone Number"
+                value={phonenumber}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Home Village</label>
+              <input
+                type="text"
+                name="homeVillage"
+                placeholder="Enter Home Village"
+                value={homevillage}
+                onChange={(e) => setHomevillage(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Traditional Authority</label>
+              <input
+                type="text"
+                name="traditional"
+                placeholder="Enter T/A"
+                value={traditionalAuthority}
+                onChange={(e) => setTA(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">National ID</label>
+              <input
+                type="text"
+                name="nationalId"
+                placeholder="Enter National ID"
+                value={nationalID}
+                onChange={(e) => setNationaId(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
+              />
+            </div>
+
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
+            <div className="flex justify-end mt-6">
               <button
                 type="submit"
-                className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-gray-800"
-                onClick={() => navigate("/bank")}
+                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
               >
-                Next
+                Submit
               </button>
             </div>
           </form>
-          <p className="text-center text-sm mt-8 font-bold font-sans">
-            2024 Higher Education
-            <br />
-            Students' Grants & Loans Board
+
+          <p className="text-center text-gray-600 text-sm mt-8 font-sans">
+            &copy; 2024 Higher Education Students' Grants & Loans Board
           </p>
         </div>
       </div>
     </div>
   );
 };
-
-export default ParentDetails;

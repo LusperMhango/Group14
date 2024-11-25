@@ -3,15 +3,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import LandingPage from './components/landingPage';
+
 import Create from './components/create';
 import Login from './components/login';
-import ApprovedLoanDetails from './components/LoanAmount';
 import { BankDetails } from './components/bankDetails';
-import ParentDetails from './components/parentDetails';
-
 import { PersonalDetails } from './components/personalDetails';
-import Logout from './components/logout'; 
+import LandingPage from './components/landingPage';
+import ApprovedLoanDetails from './components/loanAmount';
+
+import Logout from './components/logout';
+import { ParentDetails } from './components/parentDetails';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path="/bank" element={<BankDetails/>} />
       <Route path="/parent" element={<ParentDetails/>} />
       <Route path="/logout" element={<Logout />} />
+    
 
 
      

@@ -1,84 +1,98 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "./api";
 import Navbar from "./Navbar";
+import PersonalNavbar from "./personalNav";
 
 export const PersonalDetails = () => {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    surname: "",
-    sex: "",
-    phoneNumber: "",
-    homeVillage: "",
-    ta: "",
-    nationalId: "",
-  });
+  const [firstname, setFirstname] = useState('');
+  const [surname, setSurname] = useState('');
+  const [gender, setGender] = useState('');
+  const [phonenumber, setPhone] = useState('');
+  const [homevillage, setHomevillage] = useState('');
+  const [traditionalAuthority, setTA] = useState('');
+  const [nationalID, setNationaId] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const [error, setError] = useState("");
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Check if all fields are filled
-    const isEmptyField = Object.values(formData).some((field) => field === "");
-    if (isEmptyField) {
-      setError("Please fill out all fields before proceeding.");
-      return;
+
+    try {
+      const response = await api.post('/personal/create', {
+        firstname,
+        surname,
+        gender,
+        phonenumber,
+        homevillage,
+        traditionalAuthority,
+        nationalID,
+      });
+
+      // If the response is successful, save the token and navigate to the next page
+      const token = response.data.accessToken;
+      localStorage.setItem('accessToken', token);
+      alert(`personal details submitted successfuly ${firstname}`)
+      navigate('/bank');
+    } catch (error) {
+      console.error('Failed to post:', error);
+      
+      // Log the error to inspect the response
+      if (error.response) {
+        // Server responded with an error
+        setError(`Error: ${error.response.status} - ${error.response.data.message || error.response.statusText}`);
+      } else if (error.request) {
+        // No response was received
+        setError("No response from server. Please try again later.");
+      } else {
+        // Something else went wrong
+        setError(`An error occurred: ${error.message}`);
+      }
     }
-    setError("");
-    alert("Form uploaded successfully!");
   };
 
   return (
-    <div >
-      <Navbar />
-      <div className="flex justify-center items-center min-h-screen bg-gray-100 font-sans">
+    <div>
+      <PersonalNavbar />
+      <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700  font-sans ">
         <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
-          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
-            Bonding in Progress
+          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 font-sans">
+            PERSONAL DETAILS FORM
           </h2>
-          <p className="text-center text-gray-600 mb-8">
-            Enter Personal Details
+          <p className="text-center text-gray-600 mb-8 font-sans">
+            Please enter accurate personal details.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Firstname
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Firstname</label>
               <input
                 type="text"
                 name="firstname"
                 placeholder="Enter Firstname"
-                value={formData.firstname}
-                onChange={handleInputChange}
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Surname
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Surname</label>
               <input
                 type="text"
                 name="surname"
                 placeholder="Enter Surname"
-                value={formData.surname}
-                onChange={handleInputChange}
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Gender
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Gender</label>
               <select
-                name="sex"
-                value={formData.sex}
-                onChange={handleInputChange}
+                name="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               >
                 <option value="">Select Gender</option>
@@ -88,57 +102,49 @@ export const PersonalDetails = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Phone Number
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
               <input
                 type="tel"
                 name="phoneNumber"
                 placeholder="Enter Phone Number"
-                value={formData.phoneNumber}
-                onChange={handleInputChange}
+                value={phonenumber}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Home Village
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Home Village</label>
               <input
                 type="text"
                 name="homeVillage"
                 placeholder="Enter Home Village"
-                value={formData.homeVillage}
-                onChange={handleInputChange}
+                value={homevillage}
+                onChange={(e) => setHomevillage(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Traditional Authority
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">Traditional Authority</label>
               <input
                 type="text"
-                name="ta"
+                name="traditional"
                 placeholder="Enter T/A"
-                value={formData.ta}
-                onChange={handleInputChange}
+                value={traditionalAuthority}
+                onChange={(e) => setTA(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                National ID
-              </label>
+              <label className="block text-gray-700 font-medium mb-2">National ID</label>
               <input
                 type="text"
                 name="nationalId"
                 placeholder="Enter National ID"
-                value={formData.nationalId}
-                onChange={handleInputChange}
+                value={nationalID}
+                onChange={(e) => setNationaId(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
@@ -150,12 +156,12 @@ export const PersonalDetails = () => {
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
               >
-                Proceed
+                Submit
               </button>
             </div>
           </form>
 
-          <p className="text-center text-gray-600 text-sm mt-8">
+          <p className="text-center text-gray-600 text-sm mt-8 font-sans">
             &copy; 2024 Higher Education Students' Grants & Loans Board
           </p>
         </div>

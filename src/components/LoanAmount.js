@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-
+import { useNavigate } from "react-router-dom";
+import PersonalNavbar from "./personalNav";
 
 const ApprovedLoanDetails = () => {
   const navigate = useNavigate();
@@ -13,14 +13,14 @@ const ApprovedLoanDetails = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="flex justify-center items-center min-h-screen bg-gray-300 font-sans">
+      <PersonalNavbar />
+      <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700  font-sans">
         <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg ">
           <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
           LOAN AMOUNT FORM
           </h2>
           <p className="text-center text-gray-600 mb-8">
-          Please provide accurate banking details for bonding.
+          Please provide accurate loan Amount for bonding.
           </p>
           <form className="space-y-6">
             <div>
@@ -82,7 +82,7 @@ const ApprovedLoanDetails = () => {
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
                 onClick={() => navigate("/logout")}
               >
-                Finish
+                Proceed
               </button>
             </div>
           </form>
