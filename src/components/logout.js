@@ -122,7 +122,7 @@ const FileUploadPage = () => {
         {/* Image Section */}
         <div className="mt-12 lg:mt-0 lg:ml-8">
           <img
-            src="c.jpg" // Replace with your image
+            src="c.jpg" 
             alt="Upload illustration"
            className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
