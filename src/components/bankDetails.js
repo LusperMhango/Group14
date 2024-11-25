@@ -122,3 +122,4 @@ export const BankDetails = () => {
     </div>
   );
 };
+// ndaonjexera ichi
