@@ -1,0 +1,2 @@
+This is gonna show me where to start from
+I have to deploy the frontend by 2 am
