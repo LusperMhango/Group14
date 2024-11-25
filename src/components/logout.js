@@ -1,22 +1,3 @@
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import Navbar from './Navbar'; // Import Navbar for consistency
-
-// const Logout = () => {
-//   const navigate = useNavigate();
-
-//   const handleLogout = () => {
-//     localStorage.clear();
-//     navigate('/login'); // Redirect to the home page
-//   };
-
-//   return (
-//     <div>
-//       {/* Navbar for the header */}
-//       <Navbar />
-
-
-
 
 
 import React, { useState } from "react";
