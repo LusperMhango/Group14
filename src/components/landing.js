@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./footer";
+import PersonalNavbar from "./personalNav";
 
 
 function LandingPage() {
@@ -23,7 +24,7 @@ function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 text-white">
-      <Navbar />
+      <PersonalNavbar />
       <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
         {/* Text Section */}
         <div className="flex flex-col text-center lg:text-left max-w-lg">

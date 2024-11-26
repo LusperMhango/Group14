@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import PersonalNavbar from "./personalNav";
 
 function TermsAndConditionsPage() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -25,7 +26,7 @@ function TermsAndConditionsPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
-      <Navbar />
+      <PersonalNavbar />
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-6">
           Terms and Conditions

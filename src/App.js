@@ -20,7 +20,7 @@ import LandingPage from './components/landing';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Create/>} />
+      <Route path="/" element={<Exit/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/landingpage" element={<LandingPage/>} />
       <Route path="/personal" element={<PersonalDetails/>} />

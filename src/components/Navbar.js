@@ -54,7 +54,7 @@ const Navbar = () => {
         >
           Bank Details
         </button>
-        <a href="/" className="hover:text-orange-800">
+        <a href="" className="hover:text-orange-800">
           Terms
         </a>
       </div>

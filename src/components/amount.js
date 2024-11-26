@@ -47,7 +47,7 @@ const ApprovedLoanDetails = () => {
     <div>
       <PersonalNavbar />
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 font-sans">
-        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded tracking-wide reading-tight font-sans">
+        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded tracking-wide reading-tight mt-16 mb-16 font-sans">
           <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             LOAN AMOUNT FORM
           </h2>
@@ -113,18 +113,18 @@ const ApprovedLoanDetails = () => {
             </div>
 
             <div className="flex justify-between items-center mt-6 flex-col sm:flex-row">
-              <button
+              {/* <button
                 type="button"
                 className="px-6 py-2 mb-4 sm:mb-0 bg-gray-500 text-white rounded-md hover:bg-gray-700"
                 onClick={() => navigate("/parent")}
               >
                 Previous
-              </button>
+              </button> */}
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
               >
-                Proceed
+                submit
               </button>
             </div>
           </form>
