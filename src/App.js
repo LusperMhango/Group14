@@ -10,10 +10,10 @@ import Terms from './components/terms';
 import Login from './components/login';
 import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';
-import ApprovedLoanDetails from './components/loanAmount';
 import Logout from './components/logout';
 import { ParentDetails } from './components/parentDetails';
 import LandingPage from './components/landingpage';
+import ApprovedLoanDetails from './components/amount';
 
 
 
