@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -78,7 +76,7 @@ const FileUploadPage = () => {
       <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
         {/* File Upload Section */}
         <div className="flex flex-col text-center lg:text-left max-w-lg space-y-6">
-          <h1 className="text-4xl font-extrabold leading-tight tracking-wide font-sans">
+          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-wide font-sans">
             Upload Your Required Documents
           </h1>
           <p className="text-lg mt-4 font-medium">
@@ -113,9 +111,8 @@ const FileUploadPage = () => {
           <button
             onClick={handleLogout}
             className="w-40 items-center hover:bg-yellow-900 bg-yellow-500 text-gray-950 p-2 rounded-lg font-semibold mt-6"
-            
-         >
-           exit
+          >
+            exit
           </button>
         </div>
 
@@ -124,7 +121,7 @@ const FileUploadPage = () => {
           <img
             src="c.jpg" 
             alt="Upload illustration"
-           className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
       </main>
