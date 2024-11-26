@@ -1,4 +1,3 @@
-// TermsAndConditionsPage.jsx
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
@@ -27,12 +26,12 @@ function TermsAndConditionsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-6">
           Terms and Conditions
         </h1>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8 lg:p-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
             1. General Terms
           </h2>
           <p className="text-gray-600 mb-4">
@@ -51,7 +50,7 @@ function TermsAndConditionsPage() {
             website or other official channels.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
             2. Eligibility
           </h2>
           <p className="text-gray-600 mb-4">
@@ -68,7 +67,7 @@ function TermsAndConditionsPage() {
             disqualification and possible legal action.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
             3. Bonding Process
           </h2>
           <p className="text-gray-600 mb-4">
@@ -86,7 +85,7 @@ function TermsAndConditionsPage() {
             ineligibility.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
             4. Loan Repayment
           </h2>
           <p className="text-gray-600 mb-4">
@@ -102,7 +101,7 @@ function TermsAndConditionsPage() {
             reporting to credit reference bureaus.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
             5. Supporting Documentation Upload
           </h2>
           <p className="text-gray-600 mb-4">
@@ -110,7 +109,6 @@ function TermsAndConditionsPage() {
             identification, proof of enrollment, and bonding agreement
             signatures, to complete the bonding process.
           </p>
-        
         </div>
       </main>
       <footer className="bg-gray-800 text-center py-4 mt-8">
