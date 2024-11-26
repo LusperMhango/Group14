@@ -57,7 +57,7 @@ const ApprovedLoanDetails = () => {
           </p>
           <form onSubmit={handleFormSubmit} className="space-y-6">
             <div>
-              <label htmlFor="tuition" className="block text-gray-700 font-medium mb-2 tracking-wide reading-tight font-sans">
+              <label htmlFor="tuition" className="block text-gray-700 font-medium mb-2 tracking-wide reading-tight font-sans font-bold">
                 Tuition:
               </label>
               <select
@@ -65,17 +65,17 @@ const ApprovedLoanDetails = () => {
                 name="tuition"
                 value={Tuition}
                 onChange={(e) => setTuition(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none opacity-50"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none"
                 required
               >
-                <option value="">Select Tuition Amount</option>
+                <option className="opacity-50" value="">Select Tuition Amount</option>
                 <option value="full">MWK 650,000</option>
                 <option value="partial">MWK 325,000</option>
                 <option value="none">None</option>
               </select>
             </div>
             <div>
-              <label htmlFor="upkeep" className="block text-gray-700 font-medium mb-2 tracking-wide reading-tight font-sans">
+              <label htmlFor="upkeep" className="block text-gray-700 font-medium mb-2 tracking-wide reading-tight font-sans font-bold">
                 Upkeep:
               </label>
               <select
@@ -84,17 +84,17 @@ const ApprovedLoanDetails = () => {
                 name="upkeep"
                 value={Upkeep}
                 onChange={(e) => setUpkeep(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none opacity-50"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none"
                 required
               >
-                <option value="">Select Upkeep Amount</option>
+                <option className="opacity-50" value="">Select Upkeep Amount</option>
                 <option value="full">MWK 590,000</option>
                 <option value="partial">MWK 270,000</option>
                 <option value="none">None</option>
               </select>
             </div>
             <div>
-              <label htmlFor="totalAmount" className="block text-gray-800 font-medium mb-2 tracking-wide reading-tight font-sans ">
+              <label htmlFor="totalAmount" className="block text-gray-800 font-medium mb-2 tracking-wide reading-tight font-sans font-bold">
                 Total Amount:
               </label>
               <select
@@ -103,10 +103,10 @@ const ApprovedLoanDetails = () => {
                 name="Totalamount"
                 value={Totalamount}
                 onChange={(e) => setTotal(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-200 focus:outline-none opacity-50"
+                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-200 focus:outline-none"
                 required
               >
-                <option value="">Select Total Amount</option>
+                <option className="opacity-50" value="">Select Total Amount</option>
                 <option value="full">MWK 1,250,000</option>
                 <option value="partial">MWK 650,000</option>
                 <option value="none">None</option>
