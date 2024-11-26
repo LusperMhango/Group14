@@ -100,14 +100,14 @@ const CreateAccount = () => {
           </div>
 
           <div className="flex justify-between items-center mt-4 px-16">
-            <button
-            type="submit"
-            className="bg-gray-700 text-white font-semibold py-1 px-4 rounded hover:bg-gray-900 transition text-md mx-auto sm:ml-36"
-             >
-            Create Account
-           </button>
+          <button
+              type="submit"
+                className="bg-gray-700 text-white font-semibold py-1 px-4 rounded hover:bg-gray-900 transition text-md mx-auto sm:ml-36"
+                 >
+               Create Account
+          </button>
           </div>
-
+          
           <div className='mb-4 flex justify-center item-center ml-4 shadow-2xl'>
           <button
             type="button"
