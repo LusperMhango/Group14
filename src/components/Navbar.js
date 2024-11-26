@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="font-sans text-white flex justify-between items-center px-6 py-3 w-full fixed font-bold text-md leading-tight tracking-wide bg-gradient-to-r from-blue-700 via-blue-800 to-blue-700 z-50">
+    <div className="font-sans text-white flex justify-between items-center px-6 py-3 w-full fixed font-bold text-md leading-tight tracking-wide bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 z-50">
       {/* Logo Section */}
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="w-16 h-16 rounded-full" />
@@ -59,15 +59,6 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* User Dropdown (Visible only on Desktop) */}
-      <div className="hidden md:flex items-center space-x-4">
-        <div className="relative">
-          <button className="flex items-center space-x-2 hover:text-orange-800">
-            <span>Student Name</span>
-          </button>
-        </div>
-      </div>
-
       {/* Mobile Menu Icon */}
       <div className="md:hidden flex items-center">
         <button onClick={toggleMobileMenu} className="text-xl">
@@ -77,16 +68,21 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-blue-600 text-white transform ${
+        className={`fixed top-0 left-0 h-1/2 w-60 bg-blue-600 text-white transform ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 z-40`}
       >
-        <button
-          onClick={toggleMobileMenu}
-          className="absolute top-4 right-4 text-xl text-white"
-        >
-          <FaTimes />
-        </button>
+        {/* Close Button */}
+        <div className="flex justify-between items-center px-4 py-4">
+          <button
+            onClick={toggleMobileMenu}
+            className="text-xl text-white focus:outline-none"
+          >
+            <FaTimes />
+          </button>
+        </div>
+
+        {/* Menu Items */}
         <div className="flex flex-col items-start px-6 py-4 space-y-4">
           <button
             type="submit"
