@@ -13,51 +13,60 @@ const CreateAccount = () => {
 
   const handleAccount = async (e) => {
     e.preventDefault();
-  
-  try{
-    const response = await api.post('/auth/create',{firstname, surname, RegNumber, email, password})
 
-    const token = response.data.accessToken
-    
-    localStorage.setItem('accessToken', token);
-      
+    try {
+      const response = await api.post('/auth/create', {
+        firstname,
+        surname,
+        RegNumber,
+        email,
+        password,
+      });
+
+      const token = response.data.accessToken;
+
+      localStorage.setItem('accessToken', token);
+
       navigate('/login');
     } catch (error) {
       console.error('failed to create an account:', error);
       setError('incorrect input');
     }
+  };
 
-    }
-  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-800 py-10 px-4 scroll w-full overflow-y-auto transform transition">
-      <div className="max-w-xl bg-white px-4 center border border-gray-200 rounded shadow-lg w-full transition max-h-screen-1/2">
-       
+    <div className="min-h-screen flex items-center justify-center bg-gray-800 py-10 px-4 sm:px-6 lg:px-8 scroll w-full overflow-y-auto transform transition">
+      <div className="max-w-xl bg-white px-4 sm:px-6 md:px-8 center border border-gray-200 rounded shadow-lg w-full transition">
         <header className="text-center mb-6">
-          <img src="logo.png" alt="Logo" className="w-34 h-32 mx-auto mb-4 rounded-full mt-6" />
-          <h2 className="text-lg font text-gray-600 font-sans">SFMIS-Create Account</h2>
+          <img
+            src="logo.png"
+            alt="Logo"
+            className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 rounded-full mt-4 sm:mt-6"
+          />
+          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-600 font-sans">
+            SFMIS - Create Account
+          </h2>
         </header>
 
-        
-        <form onSubmit= {handleAccount} className="space-y-4 max-h-1/2">
+        <form onSubmit={handleAccount} className="space-y-4">
           <div className="flex justify-center">
             <input
               type="text"
-              placeholder="firstname"
+              placeholder="Firstname"
               required
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
           <div className="flex justify-center">
             <input
               type="text"
-              placeholder="surname"
+              placeholder="Surname"
               required
               value={surname}
               onChange={(e) => setsurname(e.target.value)}
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
           <div className="flex justify-center">
@@ -67,54 +76,54 @@ const CreateAccount = () => {
               required
               value={RegNumber}
               onChange={(e) => setRegnumber(e.target.value)}
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
           <div className="flex justify-center">
             <input
               type="email"
-              placeholder="email"
+              placeholder="Email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
           <div className="flex justify-center">
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
           <div className="flex justify-center">
             <input
               type="password"
-              placeholder="Confirm password"
+              placeholder="Confirm Password"
               required
-              className="text-md w-3/4 p-1 border border-yellow-700 shadow-2xl"
+              className="text-sm sm:text-md w-11/12 sm:w-3/4 p-2 sm:p-3 border border-yellow-700 shadow-lg rounded"
             />
           </div>
 
-          <div className="flex justify-between items-center mt-4 px-16">
+          <div className="flex justify-center items-center mt-4">
             <button
               type="submit"
-              className=" ml-36 bg-gray-700 text-white font-semibold py-1 px-4 rounded hover:bg-gray-900 transition text-md"
+              className="bg-gray-700 text-white font-semibold py-2 px-6 rounded hover:bg-gray-900 transition text-sm sm:text-md"
             >
               Create Account
             </button>
           </div>
-          <div className='mb-4 flex justify-center item-center ml-4 shadow-2xl'>
-          <button
-            type="button"
-            className="mb-4 font-sans block text-gray-500 hover:underline text-center font-medium"
-            onClick={() => navigate('/login')}
-          >
-            Already have an account?
-          </button>
+          <div className="mt-4 flex justify-center">
+            <button
+              type="button"
+              className="text-sm sm:text-md font-sans text-gray-500 hover:underline"
+              onClick={() => navigate('/login')}
+            >
+              Already have an account?
+            </button>
           </div>
         </form>
       </div>
