@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import PersonalNavbar from "./personalNav";
+import PersonalNavbar from "./pesornalNav";
 import api from "./api";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export const BankDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`${bankname} details submitted successfully`)
-      navigate('/logout');
+      navigate('/landingpage');
     } catch (error) {
       console.error('Failed to post:', error);
       
