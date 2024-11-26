@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
   };
 
   return (
@@ -18,7 +24,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex space-x-6">
+      <div className="hidden md:flex flex-1 justify-center space-x-6">
         <button
           type="submit"
           className="hover:text-orange-800"
@@ -59,6 +65,40 @@ const Navbar = () => {
         </a>
       </div>
 
+      {/* User Dropdown */}
+      <div className="hidden md:flex items-center relative">
+        <button
+          onClick={toggleDropdown}
+          className="flex items-center space-x-2 hover:text-orange-800"
+        >
+          <FaUserCircle className="text-xl" />
+          <span>Student Name</span>
+          {dropdownOpen ? (
+            <MdKeyboardArrowUp className="text-lg" />
+          ) : (
+            <MdKeyboardArrowDown className="text-lg" />
+          )}
+        </button>
+
+        {dropdownOpen && (
+          <div className="absolute right-0 mt-2 w-48 bg-white text-gray-600 rounded-lg shadow-lg mt-32">
+            <a
+              href="/create-account"
+              className="block px-4 py-2 hover:bg-gray-200 rounded-lg"
+            >
+              Account settings
+            </a>
+            <button
+              type="submit"
+              className="block py-2 hover:bg-gray-200 pr-24 w-full"
+              onClick={() => navigate('/login')}
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* Mobile Menu Icon */}
       <div className="md:hidden flex items-center">
         <button onClick={toggleMobileMenu} className="text-xl">
@@ -68,8 +108,8 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`fixed top-0 left-0 h-1/2 w-60 bg-blue-600 text-white transform ${
-          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 right-0 h-1/2 w-60 bg-gray-700 text-white transform ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 z-40`}
       >
         {/* Close Button */}
