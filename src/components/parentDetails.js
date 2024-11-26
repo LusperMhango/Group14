@@ -25,13 +25,12 @@ export const ParentDetails = () => {
         phonenumber,
         occupation,
         homevillage,
-       
       });
 
       // If the response is successful, save the token and navigate to the next page
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
-      alert(`parent details submitted successfuly ${firstname}`)
+      alert(`Parent details submitted successfully ${firstname}`);
       navigate('/bank');
     } catch (error) {
       console.error('Failed to post:', error);
@@ -53,15 +52,15 @@ export const ParentDetails = () => {
   return (
     <div>
       <PersonalNavbar />
-      <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700  font-sans ">
-        <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
-          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 font-sans">
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 px-4 sm:px-6 lg:px-8 font-sans">
+        <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl p-6 sm:p-8 bg-white shadow-2xl rounded-lg mt-16 mb-16">
+          <h2 className="text-center text-xl sm:text-2xl font-bold text-gray-800 mb-4 font-sans">
             PARENT DETAILS FORM
           </h2>
-          <p className="text-center text-gray-600 mb-8 font-sans">
+          <p className="text-center text-gray-600 mb-6 sm:mb-8 font-sans">
             Please enter accurate parent details.
           </p>
-          <form onSubmit={handleFormSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
             <div>
               <label className="block text-gray-700 font-medium mb-2">Firstname:</label>
               <input
@@ -127,7 +126,7 @@ export const ParentDetails = () => {
               <input
                 type="text"
                 name="occupation"
-                placeholder="Enter occupation"
+                placeholder="Enter Occupation"
                 value={occupation}
                 onChange={(e) => setOccupation(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
@@ -136,18 +135,17 @@ export const ParentDetails = () => {
 
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
-            <div className="flex justify-end mt-6">
+            <div className="flex justify-end mt-4 sm:mt-6">
               <button
                 type="submit"
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
+                className="px-4 sm:px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
               >
                 Submit
               </button>
             </div>
           </form>
-          
 
-          <p className="text-center text-gray-600 text-sm mt-8 font-sans">
+          <p className="text-center text-gray-600 text-sm mt-6 sm:mt-8 font-sans">
             &copy; 2024 Higher Education Students' Grants & Loans Board
           </p>
         </div>
