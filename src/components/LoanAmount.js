@@ -97,3 +97,5 @@ const ApprovedLoanDetails = () => {
 };
 
 export default ApprovedLoanDetails;
+
+
