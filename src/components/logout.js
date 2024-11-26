@@ -109,7 +109,7 @@ const FileUploadPage = () => {
 
           {/* Logout Button */}
           <button
-            onClick={handleLogout}
+            // onClick={handleLogout}
             className="w-40 items-center hover:bg-yellow-900 bg-yellow-500 text-gray-950 p-2 rounded-lg font-semibold mt-6"
             onClick={() => navigate("/exit")}
           >
