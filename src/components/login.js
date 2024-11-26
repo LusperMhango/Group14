@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     try {
       // Send a POST request to your login API endpoint
-      const response = await api.post('/auth/login', { email, password });
+      const response = await api.post('https://memorylane-5fnz.onrender.com/auth/login', { email, password });
       
       // Assuming the response contains the access token
       const token = response.data.accessToken;
