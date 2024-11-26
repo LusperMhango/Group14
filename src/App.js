@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 
 
 import Create from './components/create';
+import Exit from './components/exit';
+import Terms from './components/terms';
 import Login from './components/login';
 import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';
@@ -26,6 +28,8 @@ function App() {
       <Route path="/bank" element={<BankDetails/>} />
       <Route path="/parent" element={<ParentDetails/>} />
       <Route path="/logout" element={<Logout />} />
+      <Route path="/exit" element={<Exit />} />
+      <Route path="/terms" element={<Terms />} />
     
 
 
