@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 import axios from "axios";
 import Footer from "./footer";
+import PersonalNavbar from "./personalNav";
 
 // Create an Axios instance
 const api = axios.create({
@@ -71,8 +71,8 @@ const FileUploadPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-gray-500 via-gray-600 to-gray-600 text-white">
-      <Navbar />
 
+      <PersonalNavbar />
       <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
         {/* File Upload Section */}
         <div className="flex flex-col text-center lg:text-left max-w-lg space-y-6">
@@ -109,8 +109,9 @@ const FileUploadPage = () => {
 
           {/* Logout Button */}
           <button
-            onClick={handleLogout}
+            // onClick={handleLogout}
             className="w-40 items-center hover:bg-yellow-900 bg-yellow-500 text-gray-950 p-2 rounded-lg font-semibold mt-6"
+            onClick={() => navigate("/exit")}
           >
             exit
           </button>
@@ -119,7 +120,7 @@ const FileUploadPage = () => {
         {/* Image Section */}
         <div className="mt-12 lg:mt-0 lg:ml-8">
           <img
-            src="c.jpg" 
+            src="k.png" 
             alt="Upload illustration"
             className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />

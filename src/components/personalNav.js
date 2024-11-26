@@ -18,7 +18,7 @@ const PersonalNavbar = () => {
   };
 
   return (
-    <div className="font-sans text-gray-800 flex justify-between items-center px-6 py-3 w-full relative font-bold text-md">
+    <div className="font-sans text-gray-800 flex justify-between bg-white items-center px-6 py-3 w-full relative font-bold text-md">
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="w-12 h-12 mx-auto rounded-full" />
       </div>

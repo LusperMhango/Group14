@@ -53,7 +53,7 @@ const SuccessPage = () => {
         {/* Right Section: Image */}
         <div className="mt-12 lg:mt-10 lg:ml-32">
           <img
-            src="c.jpg" 
+            src="m.jpg" 
             alt="Congratulations"
             className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
