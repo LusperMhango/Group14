@@ -44,8 +44,6 @@ const ApprovedLoanDetails = () => {
     }
   };
 
-
-
   return (
     <div>
       <PersonalNavbar />

@@ -12,8 +12,8 @@ import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';
 import Logout from './components/logout';
 import { ParentDetails } from './components/parentDetails';
-import LandingPage from './components/landingpage';
 import ApprovedLoanDetails from './components/amount';
+import LandingPage from './components/landing';
 
 
 
