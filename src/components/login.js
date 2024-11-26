@@ -35,7 +35,7 @@ function Login() {
           <img
             src="logo.png" 
             alt="Logo"
-            className="mx-auto mb-6 h-28 w-28 sm:h-32 sm:w-32 rounded"
+            className="mx-auto mb-6 h-28 w-28 sm:h-36 sm:w-40 rounded"
           />
         </div>
         <h2 className="font-sans text-lg sm:text-xl font-semibold mb-4 text-center text-gray-500">
