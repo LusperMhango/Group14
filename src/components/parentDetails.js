@@ -7,11 +7,10 @@ import PersonalNavbar from "./personalNav";
 export const ParentDetails = () => {
   const [firstname, setFirstname] = useState('');
   const [surname, setSurname] = useState('');
-  const [gender, setGender] = useState('');
+  const [relation, setRelation] = useState('');
   const [phonenumber, setPhone] = useState('');
+  const [occupation, setOccupation] = useState('');
   const [homevillage, setHomevillage] = useState('');
-  const [traditionalAuthority, setTA] = useState('');
-  const [nationalID, setNationaId] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -19,20 +18,20 @@ export const ParentDetails = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post('/personal/create', {
+      const response = await api.post('/parent/create', {
         firstname,
         surname,
-        gender,
+        relation,
         phonenumber,
+        occupation,
         homevillage,
-        traditionalAuthority,
-        nationalID,
+       
       });
 
       // If the response is successful, save the token and navigate to the next page
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
-      alert(`personal details submitted successfuly ${firstname}`)
+      alert(`parent details submitted successfuly ${firstname}`)
       navigate('/bank');
     } catch (error) {
       console.error('Failed to post:', error);
@@ -57,14 +56,14 @@ export const ParentDetails = () => {
       <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700  font-sans ">
         <div className="w-full max-w-2xl p-10 bg-white shadow-2xl rounded-lg mt-16 mb-16">
           <h2 className="text-center text-2xl font-bold text-gray-800 mb-4 font-sans">
-            PERSONAL DETAILS FORM
+            PARENT DETAILS FORM
           </h2>
           <p className="text-center text-gray-600 mb-8 font-sans">
-            Please enter accurate personal details.
+            Please enter accurate parent details.
           </p>
           <form onSubmit={handleFormSubmit} className="space-y-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Firstname</label>
+              <label className="block text-gray-700 font-medium mb-2">Firstname:</label>
               <input
                 type="text"
                 name="firstname"
@@ -76,7 +75,7 @@ export const ParentDetails = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Surname</label>
+              <label className="block text-gray-700 font-medium mb-2">Surname:</label>
               <input
                 type="text"
                 name="surname"
@@ -88,21 +87,19 @@ export const ParentDetails = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Gender</label>
-              <select
-                name="gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
+              <label className="block text-gray-700 font-medium mb-2">Relation:</label>
+              <input
+                type="text"
+                name="relation"
+                placeholder="Enter Relation"
+                value={relation}
+                onChange={(e) => setRelation(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
+              />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+              <label className="block text-gray-700 font-medium mb-2">Phone Number:</label>
               <input
                 type="tel"
                 name="phoneNumber"
@@ -114,7 +111,7 @@ export const ParentDetails = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Home Village</label>
+              <label className="block text-gray-700 font-medium mb-2">Home Village:</label>
               <input
                 type="text"
                 name="homeVillage"
@@ -126,25 +123,13 @@ export const ParentDetails = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Traditional Authority</label>
+              <label className="block text-gray-700 font-medium mb-2">Occupation:</label>
               <input
                 type="text"
-                name="traditional"
-                placeholder="Enter T/A"
-                value={traditionalAuthority}
-                onChange={(e) => setTA(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">National ID</label>
-              <input
-                type="text"
-                name="nationalId"
-                placeholder="Enter National ID"
-                value={nationalID}
-                onChange={(e) => setNationaId(e.target.value)}
+                name="occupation"
+                placeholder="Enter occupation"
+                value={occupation}
+                onChange={(e) => setOccupation(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400"
               />
             </div>
@@ -160,6 +145,7 @@ export const ParentDetails = () => {
               </button>
             </div>
           </form>
+          
 
           <p className="text-center text-gray-600 text-sm mt-8 font-sans">
             &copy; 2024 Higher Education Students' Grants & Loans Board

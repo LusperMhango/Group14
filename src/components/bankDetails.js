@@ -28,7 +28,7 @@ export const BankDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`${bankname} details submitted successfully`)
-      navigate('/landingpage');
+      navigate('/logout');
     } catch (error) {
       console.error('Failed to post:', error);
       

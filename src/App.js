@@ -8,11 +8,11 @@ import Create from './components/create';
 import Login from './components/login';
 import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';
-import LandingPage from './components/landingPage';
-import ApprovedLoanDetails from './components/LoanAmount';
-
+import ApprovedLoanDetails from './components/loanAmount';
 import Logout from './components/logout';
 import { ParentDetails } from './components/parentDetails';
+import LandingPage from './components/landingpage';
+
 
 
 function App() {
