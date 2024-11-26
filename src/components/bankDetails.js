@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import PersonalNavbar from "./pesornalNav";
+import PersonalNavbar from "./personalNav";
 import api from "./api";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export const BankDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`${bankname} details submitted successfully`)
-      navigate('/landingpage');
+      navigate('/logout');
     } catch (error) {
       console.error('Failed to post:', error);
       
@@ -52,7 +52,7 @@ export const BankDetails = () => {
     <div>
       <PersonalNavbar />
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 font-sans">
-        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg mt-16 mb-16">
+        <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg">
           <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
             BANK DETAILS FORM
           </h2>
@@ -117,7 +117,7 @@ export const BankDetails = () => {
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"
-                onClick={() => navigate("/logout")} >
+              >
                 Finish
               </button>
             </div>
