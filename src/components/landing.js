@@ -55,7 +55,11 @@ function LandingPage() {
         </div>
       </main>
       <div>
-        <Footer />
+      <footer className="bg-black text-center py-4 mt-8">
+        <p className="text-gray-300 text-sm">
+          &copy; 2024 Malawi Higher Education Students' Grants & Loans Board
+        </p>
+      </footer>
       </div>
     </div>
   );
