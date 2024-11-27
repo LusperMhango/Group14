@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "./footer";
 import PersonalNavbar from "./personalNav";
+import api from "./api";
 
 
 const FileUploadPage = () => {
@@ -37,7 +38,7 @@ const FileUploadPage = () => {
 
     try {
       // Make POST request to upload file
-      const response = await api.patch("personal/update/:id", formData, {
+      const response = await api.patch("personal/update:id", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
