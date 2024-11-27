@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="font-sans text-white flex justify-between items-center px-6 py-3 w-full fixed font-bold text-md leading-tight tracking-wide bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 z-50">
       {/* Logo Section */}
       <div className="flex items-center">
-        <img src="logo.png" alt="Logo" className="w-16 h-16 rounded-full" />
+        <img src="logo.png" alt="Logo" className="w-12 h-12 rounded-full" />
       </div>
 
       {/* Desktop Navigation */}
@@ -82,12 +82,6 @@ const Navbar = () => {
 
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white text-gray-600 rounded-lg shadow-lg mt-32">
-            <a
-              href="/create-account"
-              className="block px-4 py-2 hover:bg-gray-200 rounded-lg"
-            >
-              Account settings
-            </a>
             <button
               type="submit"
               className="block py-2 hover:bg-gray-200 pr-24 w-full"

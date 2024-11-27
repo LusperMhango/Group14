@@ -35,7 +35,7 @@ function LandingPage() {
             <button
               onClick={handleLanding}
               disabled={isLoading}
-              className="px-2 py-1 sm:px-6 sm:py-3 text-sm sm:text-lg font-md font-extrabold font-sans font-semibold text-gray-300 bg-orange-700 rounded-lg shadow hover:bg-orange-800 focus:outline-none focus:ring-1 transition-all duration-300 shadow-xl"
+              className="px-1 py-1 sm:px-6 sm:py-3 text-sm sm:text-lg font-md font-extrabold font-sans font-semibold text-gray-300 bg-orange-700 rounded-lg shadow hover:bg-orange-800 focus:outline-none focus:ring-1 transition-all duration-300 shadow-2xl"
             >
               {isLoading ? "Loading..." : "Start Bonding"}
             </button>
