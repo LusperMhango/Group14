@@ -175,15 +175,12 @@ const Navbar = () => {
             Bank Details
           </button>
           <button
-            type="submit"
-            className="hover:text-orange-800"
-            onClick={() => {
-              navigate('/terms');
-              setMobileMenuOpen(false);
-            }}
-          >
-            Terms
-          </button>
+          type="submit"
+          className="hover:text-orange-800"
+          onClick={() => navigate('/terms')}
+        >
+          Terms
+        </button>
          
         </div>
       </div>

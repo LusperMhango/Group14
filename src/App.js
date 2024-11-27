@@ -27,7 +27,7 @@ function App() {
       <Route path="/loan" element={<ApprovedLoanDetails/>} />
       <Route path="/bank" element={<BankDetails/>} />
       <Route path="/parent" element={<ParentDetails/>} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/ending" element={<Logout />} />
       <Route path="/exit" element={<Exit />} />
       <Route path="/terms" element={<Terms />} />
     
