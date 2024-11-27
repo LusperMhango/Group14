@@ -47,11 +47,13 @@ function LandingPage() {
 
         {/* Image Section */}
         <div className="mt-8 lg:mt-0 lg:ml-12 flex justify-center items-center sm:w-full">
-          <img
-            src="shake.jpg"
-            alt="Handshake illustration"
-            className="w-3/4 sm:w-2/3 max-w-full sm:max-w-md lg:max-w-lg rounded-lg shadow-4xl hover:scale-105 transition-transform duration-300 sm:mt-6"
-          />
+          <img        
+  src="shake.jpg"
+  srcSet="shake.jpg 1x, shake@2x.jpg 2x, shake@3x.jpg 3x"
+  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
+  alt="Handshake illustration"
+  className="w-3/4 sm:w-2/3 max-w-full sm:max-w-md lg:max-w-lg rounded-lg shadow-4xl hover:scale-105 transition-transform duration-300 sm:mt-6"
+/>      
         </div>
       </main>
       <div>
