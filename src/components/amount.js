@@ -113,13 +113,13 @@ const ApprovedLoanDetails = () => {
             </div>
 
             <div className="flex justify-between items-center mt-6 flex-col sm:flex-row">
-              {/* <button
+               <button
                 type="button"
                 className="px-6 py-2 mb-4 sm:mb-0 bg-gray-500 text-white rounded-md hover:bg-gray-700"
                 onClick={() => navigate("/parent")}
               >
                 Previous
-              </button> */}
+              </button> 
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-800"

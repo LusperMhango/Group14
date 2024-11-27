@@ -23,13 +23,13 @@ const SuccessPage = () => {
   };
 
   return (
-    <div className=" w-full fixed flex flex-col min-h-screen bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 text-white">
+    <div className=" w-full fixed flex flex-col min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 text-white">
       <Navbar />
 
-      <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
+      <main className="flex mt-20 flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
         {/* Left Section: Text and Buttons */}
         <div className="flex flex-col text-center lg:text-left max-w-lg space-y-6">
-          <h1 className="text-4xl font-extrabold leading-tight tracking-wide font-sans text-green-600">
+          <h1 className="text-4xl font-extrabold leading-tight tracking-wide font-sans text-green-600 animate-typewriter overflow-hidden ">
             Congratulations on Your Successful Bonding!
           </h1>
           <p className="text-lg mt-4 font-medium">
