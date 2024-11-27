@@ -46,11 +46,11 @@ function LandingPage() {
         </div>
 
         {/* Image Section */}
-        <div className="mt-8 lg:mt-0 lg:ml-12">
+        <div className="mt-8 lg:mt-0 lg:ml-12 flex justify-center items-center sm:w-full">
           <img
             src="shake.jpg"
             alt="Handshake illustration"
-            className="w-3/4 sm:w-full max-w-full sm:max-w-md sm:mb-20 lg:max-w-lg rounded-lg shadow-4xl hover:scale-105 transition-transform duration-300"
+            className="w-3/4 sm:w-2/3 max-w-full sm:max-w-md lg:max-w-lg rounded-lg shadow-4xl hover:scale-105 transition-transform duration-300 sm:mt-6"
           />
         </div>
       </main>

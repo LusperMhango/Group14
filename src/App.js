@@ -6,7 +6,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import Create from './components/create';
 import Exit from './components/congrats';
-import Terms from './components/terms';
 import Login from './components/login';
 import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';
@@ -14,6 +13,7 @@ import Logout from './components/ending';
 import { ParentDetails } from './components/parentDetails';
 import ApprovedLoanDetails from './components/amount';
 import LandingPage from './components/landing';
+import TermsAndConditionsPage from './components/terms';
 
 
 
@@ -29,7 +29,7 @@ function App() {
       <Route path="/parent" element={<ParentDetails/>} />
       <Route path="/ending" element={<Logout />} />
       <Route path="/exit" element={<Exit />} />
-      <Route path="/terms" element={<Terms />} />
+      <Route path="/terms" element={<TermsAndConditionsPage />} />
     
  
     </Routes>
