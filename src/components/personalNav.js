@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="font-sans text-gray-800 flex justify-between items-center px-6 py-3 w-full fixed font-bold text-md leading-tight tracking-wide bg-white z-50">
+    <div className="font-sans text-gray-800 bg-white flex justify-between items-center px-6 py-3 w-full fixed font-bold text-md leading-tight tracking-wide z-50 relative">
       {/* Logo Section */}
       <div className="flex items-center">
         <img src="logo.png" alt="Logo" className="w-16 h-16 rounded-full" />
@@ -60,13 +60,9 @@ const Navbar = () => {
         >
           Bank Details
         </button>
-        <button
-          type="submit"
-          className="hover:text-orange-800"
-          onClick={() => navigate('/terms')}
-        >
+        <a href="" className="hover:text-orange-800">
           Terms
-        </button>
+        </a>
       </div>
 
       {/* User Dropdown */}
