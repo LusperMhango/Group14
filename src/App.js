@@ -14,6 +14,7 @@ import { ParentDetails } from './components/parentDetails';
 import ApprovedLoanDetails from './components/amount';
 import LandingPage from './components/landing';
 import TermsAndConditionsPage from './components/terms';
+import SuccessPage from './components/congrats';
 
 
 
@@ -28,7 +29,7 @@ function App() {
       <Route path="/bank" element={<BankDetails/>} />
       <Route path="/parent" element={<ParentDetails/>} />
       <Route path="/ending" element={<Logout />} />
-      <Route path="/exit" element={<Exit />} />
+      <Route path="/congrats" element={<SuccessPage />} />
       <Route path="/terms" element={<TermsAndConditionsPage />} />
     
  

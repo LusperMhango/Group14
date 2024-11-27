@@ -92,6 +92,14 @@ const FileUploadPage = () => {
             >
               {isLoading ? "Uploading..." : "Upload File"}
             </button>
+          <button
+          type="submit"
+          className="hover:text-orange-800"
+          onClick={() => navigate('/congrats')}
+        >
+          Exit
+        </button>
+            
 
             {uploadMessage && (
               <p className="text-green-500 text-sm mt-4 font-medium">{uploadMessage}</p>
