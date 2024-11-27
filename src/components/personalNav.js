@@ -60,9 +60,14 @@ const Navbar = () => {
         >
           Bank Details
         </button>
-        <a href="" className="hover:text-orange-800">
+        <button
+          type="submit"
+          className="hover:text-orange-800"
+          onClick={() => navigate('/terms')}
+        >
           Terms
-        </a>
+        </button>
+       
       </div>
 
       {/* User Dropdown */}

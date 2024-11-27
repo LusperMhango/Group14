@@ -38,7 +38,7 @@ const FileUploadPage = () => {
 
     try {
       // Make POST request to upload file
-      const response = await api.patch("personal/update:id", formData, {
+      const response = await api.post("personal/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -88,6 +88,7 @@ const FileUploadPage = () => {
               onClick={handleFileUpload}
               className="px-6 py-2 mt-2 text-lg font-medium text-white bg-orange-500 rounded-lg shadow-lg hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition-all duration-300 shadow-2xl disabled:bg-gray-400"
               disabled={isLoading}
+              
             >
               {isLoading ? "Uploading..." : "Upload File"}
             </button>
