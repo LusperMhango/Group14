@@ -21,8 +21,8 @@ import SuccessPage from './components/congrats';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Create/>} />
-      <Route path="/login" element={<Login/>} />
+      {/* <Route path="/" element={<Create/>} /> */}
+      <Route path="/" element={<Login/>} />
       <Route path="/landingpage" element={<LandingPage/>} />
       <Route path="/personal" element={<PersonalDetails/>} />
       <Route path="/loan" element={<ApprovedLoanDetails/>} />
