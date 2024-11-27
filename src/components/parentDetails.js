@@ -31,7 +31,7 @@ export const ParentDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`Parent details submitted successfully ${firstname}`);
-      navigate('/bank');
+      navigate('/loan');
     } catch (error) {
       console.error('Failed to post:', error);
       
@@ -54,7 +54,7 @@ export const ParentDetails = () => {
       <PersonalNavbar />
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 px-4 sm:px-6 lg:px-8 font-sans">
         <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl p-6 sm:p-8 bg-white shadow-2xl rounded-lg mt-16 mb-16">
-          <h2 className="text-center text-xl sm:text-2xl font-bold text-gray-800 mb-4 font-sans">
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             PARENT DETAILS FORM
           </h2>
           <p className="text-center text-gray-600 mb-6 sm:mb-8 font-sans">

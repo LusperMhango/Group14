@@ -4,13 +4,6 @@ import axios from "axios";
 import Footer from "./footer";
 import PersonalNavbar from "./personalNav";
 
-// Create an Axios instance
-const api = axios.create({
-  baseURL: "http://localhost:5000", // Correct baseURL for the backend
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
 
 const FileUploadPage = () => {
   const navigate = useNavigate();
@@ -44,7 +37,7 @@ const FileUploadPage = () => {
 
     try {
       // Make POST request to upload file
-      const response = await api.post("/upload", formData, {
+      const response = await api.patch("personal/update/:id", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -66,11 +59,11 @@ const FileUploadPage = () => {
   // Handle logout
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login"); // Redirect to login page
+    navigate("/logout"); // Redirect to login page
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-r from-gray-500 via-gray-600 to-gray-600 text-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 text-white">
 
       <PersonalNavbar />
       <main className="flex flex-col lg:flex-row items-center justify-between flex-grow max-w-6xl mx-auto px-6 lg:px-12 py-12 font-sans">
@@ -106,15 +99,6 @@ const FileUploadPage = () => {
               <p className="text-red-500 text-sm mt-4 font-medium">{error}</p>
             )}
           </div>
-
-          {/* Logout Button */}
-          <button
-            // onClick={handleLogout}
-            className="w-40 items-center hover:bg-yellow-900 bg-yellow-500 text-gray-950 p-2 rounded-lg font-semibold mt-6"
-            onClick={() => navigate("/exit")}
-          >
-            exit
-          </button>
         </div>
 
         {/* Image Section */}

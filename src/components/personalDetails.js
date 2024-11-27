@@ -33,7 +33,7 @@ export const PersonalDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`personal details submitted successfully ${firstname}`);
-      navigate('/bank');
+      navigate('/parent');
     } catch (error) {
       console.error('Failed to post:', error);
       
@@ -56,7 +56,7 @@ export const PersonalDetails = () => {
       <PersonalNavbar />
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 font-sans px-4 sm:px-8 md:px-12 lg:px-16">
         <div className="w-full max-w-2xl p-6 sm:p-10 bg-white shadow-2xl rounded-lg mt-8 mb-8 sm:mt-10 sm:mb-10 md:mt-12 md:mb-12 lg:mt-16 lg:mb-16">
-          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 font-sans">
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             PERSONAL DETAILS FORM
           </h2>
           <p className="text-center text-sm sm:text-base md:text-lg text-gray-600 mb-6 font-sans">

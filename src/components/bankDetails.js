@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
 import PersonalNavbar from "./personalNav";
 import api from "./api";
 import { useNavigate } from "react-router-dom";
@@ -45,15 +44,12 @@ export const BankDetails = () => {
       }
     }
   };
-
-
-
-  return (
+return (
     <div>
       <PersonalNavbar />
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 font-sans">
         <div className="w-full max-w-2xl p-8 bg-white shadow-lg rounded-lg">
-          <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             BANK DETAILS FORM
           </h2>
           <p className="text-center text-gray-600 mb-8">

@@ -25,7 +25,7 @@ const ApprovedLoanDetails = () => {
       const token = response.data.accessToken;
       localStorage.setItem('accessToken', token);
       alert(`${Tuition} and ${Upkeep} confirmed successfully`);
-      navigate('/logout');
+      navigate('/bank');
     } catch (error) {
       console.error('Failed to post:', error);
 
