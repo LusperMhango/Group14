@@ -4,8 +4,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 
-import Create from './components/create';
-import Exit from './components/congrats';
+
 import Login from './components/login';
 import { BankDetails } from './components/bankDetails';
 import { PersonalDetails } from './components/personalDetails';

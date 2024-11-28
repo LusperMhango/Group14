@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "./api";
-import Navbar from "./Navbar";
 import PersonalNavbar from "./personalNav";
 
 export const PersonalDetails = () => {
