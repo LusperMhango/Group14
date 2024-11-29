@@ -85,21 +85,7 @@ function Login() {
         <div className="flex justify-center">
           <div className="w-3/4 h-px bg-gray-800 my-4"></div>
         </div>
-
         <div className="flex justify-center mt-4">
-          <button
-            type="button"
-            className="font-sans text-gray-500 hover:underline font-medium mr-4"
-            onClick={() => navigate('/')}
-          >
-            Signup
-          </button>
-          <a
-            href="/reset-password"
-            className="font-medium font-sans text-gray-500 hover:underline"
-          >
-            Lost your password?
-          </a>
         </div>
         <p className="font-sans text-gray-600 text-center mt-4 text-sm">
           @ 2024 Higher Education Students' Grants & Loans Board

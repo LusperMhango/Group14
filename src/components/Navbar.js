@@ -81,7 +81,15 @@ const Navbar = () => {
         </button>
 
         {dropdownOpen && (
+          
           <div className="absolute right-0 mt-2 w-48 bg-white text-gray-600 rounded-lg shadow-lg mt-32">
+            <button
+              type="submit"
+              className="block py-2 hover:bg-gray-200 pr-24 w-full"
+              onClick={() => navigate('/login')}
+            >
+              Account Settings
+            </button>
             <button
               type="submit"
               className="block py-2 hover:bg-gray-200 pr-24 w-full"
